@@ -1,8 +1,9 @@
 package org.example;
 
 import java.util.Scanner;
-
 import static org.example.operacoes.Adicao.somar;
+import static org.example.operacoes.Multiplicacao.multiplicar;
+import static org.example.operacoes.Subtracao.subtrair;
 import static org.example.utilidades.Menu.exibirMenu;
 
 //Banco simples: Conta, ContaCorrente e ContaPoupanca com herança. Saque,
@@ -23,10 +24,10 @@ public class Main {
                     somar(t);
                     break;
                 case 2:
-                    System.out.println();
+                    subtrair(t);
                     break;
                 case 3:
-                    System.out.println();
+                    multiplicar(t);
                     break;
                 case 4:
                     System.out.println();
