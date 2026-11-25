@@ -3,19 +3,33 @@ package org.example.operacoes;
 import java.util.Scanner;
 
 public class Adicao {
-    static double soma = 0;
-    static double total = 0;
-    static String entrada = "";
     public static void somar(Scanner t){
-        soma = 0;
+        double total = 0;
+        boolean primeiroN = true;
+
+        System.out.println("Digite os valores para somar (ou 'sair' para encerrar):");
+
         while (true){
-            entrada = t.nextLine();
+            String entrada = t.nextLine().trim();
+
             if (entrada.equalsIgnoreCase("sair")){
                 break;
             }
-            soma += Double.parseDouble(entrada);
-            System.out.println(soma);
+            try {
+                double valoratual = Double.parseDouble(entrada.replace(",", "."));
+
+                if (primeiroN){
+                    total = valoratual;
+                    primeiroN = false;
+                }else {
+                    double totalAnterior = total;
+                    total +=valoratual;
+                    System.out.println(totalAnterior + " + " + valoratual + " + " + total);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida! Digite um número ou 'sair'.");
+            }
         }
-        System.out.println(total);
+        System.out.println("Resultado final " + total + "\n");
     }
 }
